@@ -1,0 +1,54 @@
+<HTML>
+<HEAD  >  
+<title>Bandeau</title>
+
+
+</HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<BODY bgcolor="00FF00">
+  
+  <script src="jquery.js"></script>
+
+  <script>
+ 
+       
+$(document).ready(function () {
+   var userAgent = navigator.userAgent.toLowerCase();
+   
+   jQuery.browser = {
+      version: (userAgent.match( /.+(?:rv|it|ra|ie|me)[\/: ]([\d.]+)/ ) || [])[1],
+      chrome: /chrome/.test( userAgent ),
+      safari: /webkit/.test( userAgent ) && !/chrome/.test( userAgent ),
+      opera: /opera/.test( userAgent ),
+      msie: /msie/.test( userAgent ) && !/opera/.test( userAgent ),
+      mozilla: /mozilla/.test( userAgent ) && !/(compatible|webkit)/.test( userAgent )
+   };
+   
+   var lblNavigateur = 'Navigateur : ';
+   if ( $.browser.msie ){
+      lblNavigateur += 'Internet explorer';
+   }
+   else if ( $.browser.chrome ){
+      lblNavigateur += 'Chrome';
+   }
+   else if ( $.browser.mozilla ){
+      lblNavigateur += 'Mozilla Firefox';
+   }
+   else if ( $.browser.opera ){
+      lblNavigateur += 'Opera';
+   }
+   else{
+      lblNavigateur += 'Autre navigateur';
+   }
+   lblNavigateur += ' | version : ' + $.browser.version;
+   $('#result').html(lblNavigateur);
+});
+</script>   
+  
+    <span id="result"></span>
+ <a HREF="mailto:jacques.vazquez@scd.fr"  >Envoyer un e-mail</a>
+  
+<img alt="Luisina les couleurs de la vie" src="logocouleurvie.jpg" ALIGN= RIGHT>
+</BODY>
+</HTML>

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD  >  </HEAD>
+<BODY bgcolor="00FF00">
+<script>	
+var NewWin;
+var nbr;
+function fin(){window.close()};
+pointBlanc = new Image();
+pointRouge = new Image();
+pointBlanc.src ="./Blanc.gif";
+pointRouge.src="./Rouge.gif";
+
+function survol(sens, nbr) {
+   switch (sens) {
+      case "entree" :
+          document.images[nbr].src=pointRouge.src
+          break;
+      case "sortie" :
+          document.images[nbr].src=pointBlanc.src;
+      break;
+   }
+}
+
+</script>
+
+<A NAME="entete"> Menu Haut  </A>
+ 
+
+ 
+<p align="left">&nbsp;&nbsp;<img src="./BLANC.GIF" width="8"	height="8">
+ <A HREF="http://xsmprd:10088/login.html" target = "principal" 	onMouseOver="survol(entree ; 0)" onMouseOut="survol(sortie ; 0)"> 
+  <font face="Tahoma"> Login </font> </a>
+</p>
+
+<p align="left">&nbsp;&nbsp;<img src="./BLANC.GIF" width="8"	height="8">
+ <A HREF="http://xsmprd:10088/switch.php" target = "principal" 	onMouseOver="survol(entree; 1)" onMouseOut="survol(sortie; 1)"> 
+  <font face="Tahoma"> Flowplan </font> </a>
+</p>
+
+<p align="left">&nbsp;&nbsp;<img src="./BLANC.GIF" width="8"	height="8">
+ <A HREF="http://xsmprd:10088/fermesession.php" target = "principal" 	onMouseOver="survol(entree; 2)" onMouseOut="survol(sortie; 2)"> 
+  <font face="Tahoma"> Logout </font> </a>
+</p>
+
+ 
+<BR></BR>
+<A HREF="#entete"> en Haut </A>
+</BODY>
+</HTML>

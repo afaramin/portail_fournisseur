@@ -128,7 +128,7 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
         }
                 
         if  ($statut == 'Oui') {
-	// oui confirmé appel du programme de EUREKA 
+	// oui confirmé appel du programme de EUREKA via l'appel d'une procedure SQL
             
         }
 	    

@@ -34,9 +34,8 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 		echo '<form method = "POST" action="confirm.php">';
 		
 		// tout va bien alors requete
-		$requet = "SELECT ADOC ,  C.VREF , NART , LCDL , DCAR , ALIG , C.NREF FROM
-		euro4scd/cdflig left join euro4scd/cdfent c  using(ADOC) 
-	    WHERE ADOC = '" . $ADOC . "' and ALIG ='"  . $ALIG . "'";
+		$requet = "SELECT ADOC , C.VREF , NART , LCDL , DCAR , ALIG , C.NREF , FQCD , a.CTFO FROM
+		euro4scd/cdflig a left join euro4scd/cdfent c  using(ADOC) WHERE ADOC = '" . $ADOC . "' and ALIG ='"  . $ALIG . "'";
 		// echo  $requet;
 		$result = db2_exec ( $DB, $requet );
 		
@@ -53,10 +52,15 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 			echo '</td></tr>';
 			
 			echo '<tr><td>';
-			echo '<b>article    </b>  ' . $lignes ['NART']  ;
+			echo '<b>article    </b>  ' . $lignes ['NART'] . '  ' . $lignes['CTFO']  ;
 			echo '<BR>';
 			echo '</td></tr>';
 			
+                        echo '<tr><td>';
+			echo '<b>quantité    </b>  ' . $lignes ['FQCD']  ;
+			echo '<BR>';
+			echo '</td></tr>';
+                        
 			echo '<tr><td>';
 			echo '<b> libelle :   </b>' . $lignes ['LCDL'];
 			echo '<BR>';
@@ -102,7 +106,10 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 } else {
 	
 	$statut = $_POST['statut'];
-	// gestion de l'update
+        
+        
+           if  ($statut === 'Non') {
+	// gestion de la date pour  l'update
 	$DLIV = $_POST ['dateliv'];
 	$date_explosee = explode ( "/", $DLIV );
 	$jour = $date_explosee [0];
@@ -123,12 +130,35 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 		$message = ' la date de livraison ne semble pas convenir ' . $DLIV;
 		mail($desti, $sujet, $message ); }
 		
-	if ($result == FALSE) {		die ( "<br>connection using  " . $requet . " is not correct   </br>" );
-               
-        }
+        if ($result === FALSE) {die ( "<br>connection using  " . $requet . " is not correct   </br>" );}
+             }
+             
                 
-        if  ($statut == 'Oui') {
+        if  ($statut === 'Oui') {
 	// oui confirmé appel du programme de EUREKA via l'appel d'une procedure SQL
+            
+            // gestion de la date pour  l'update
+	$DLIV   = $_POST ['dateliv'];
+	$date_explosee = explode ( "/", $DLIV );
+	$jour   = $date_explosee [0];
+	$mois   = $date_explosee [1];
+	$annee  = $date_explosee [2];
+	$DLIV   = $jour * 1000000 + $mois * 10000 + $annee;
+        
+        
+        $ecritbdd = 'call xcdfarcc( ? , ? , ?   )';
+	$stmt = db2_prepare($DB, $ecritbdd );
+	$rc = db2_bind_param($stmt, 1, "ADOC" ,DB2_PARAM_IN);
+        $rc = db2_bind_param($stmt, 2, "ALIG" ,DB2_PARAM_IN);
+        $rc = db2_bind_param($stmt, 3, "DLIV" ,DB2_PARAM_IN);
+        
+        
+	$rc = db2_execute($stmt);
+	
+	if ($rc == FALSE) {
+		die ( "<br>connection using  " . $ecritbdd . " is not correct   </br>" . $ADOC . " " . $ALIG . "  " . $DLIV   );
+	}
+        
             
         }
 	    

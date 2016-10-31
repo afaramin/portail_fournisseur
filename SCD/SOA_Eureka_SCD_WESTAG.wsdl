@@ -81,7 +81,7 @@
 	</binding>
 	<service name="Eureka_SCDService">
 		<port name="WS_SCDPort" binding="typens:WS_SCDBinding">
-			<soap:address location="http://93.17.11.106:4443/SCD/WS_SCD_WESTAG.php"/>
+			<soap:address location="http://37.157.228.82:4443/SCD/WS_SCD_WESTAG.php"/>
 		</port>
 	</service>
 </definitions>

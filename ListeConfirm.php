@@ -2,7 +2,7 @@
 <HEAD>
 <title>Confirmation des dates d'exp�dition</title>
 </HEAD>
-<BODY bgcolor="00FF00">
+<BODY bgcolor="FAEBD7">
 
 <?php
 // pour r�cup�rer le mot de passe et le compte user

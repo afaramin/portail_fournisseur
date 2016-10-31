@@ -2,7 +2,7 @@
 <HEAD>
 <title>liste des Bons livraison </title>
 </HEAD>
-<BODY bgcolor="00FF00">
+<BODY bgcolor="FAEBD7">
 
 <?php 
 // pour r�cup�rer le mot de passe et le compte user 

@@ -2,10 +2,10 @@
 <HEAD>
 <title>liste des Bons livraison </title>
 </HEAD>
-<BODY bgcolor="00FF00">
+<BODY bgcolor="FAEBD7">
 
 <?php 
-// pour récupérer le mot de passe et le compte user 
+// pour rï¿½cupï¿½rer le mot de passe et le compte user 
 session_start();
 $critere = $_POST['cod_tarif'];
 $sens  = $_POST['sens'];
@@ -26,12 +26,12 @@ if (!isset($_POST['cod_tarif']))  { $critere =  	$_SESSION['P3TARIF'];}
 
 if (empty($critere))
  {
-    	echo "Donnée non comprise";    	
+    	echo "Donnï¿½e non comprise";    	
  }	
 
-echo "<TABLE   border='2'> <caption>liste des PLANS de travail  " . $critere   ." de    " . $P3EAMI . " à " . $P3EAMA ;
+echo "<TABLE   border='2'> <caption>liste des PLANS de travail  " . $critere   ." de    " . $P3EAMI . " ï¿½ " . $P3EAMA ;
 echo "</caption>";
-echo "<tr><th>Document</th><th>B.L</th><th>client</th><th>Ref Client</th><th>N°aff</th><th>Flag</th><th>selection</th></tr>";
+echo "<tr><th>Document</th><th>B.L</th><th>client</th><th>Ref Client</th><th>Nï¿½aff</th><th>Flag</th><th>selection</th></tr>";
 
 
  
@@ -40,7 +40,7 @@ if (!empty($critere))
  {
          	
  
-// la connexion à la BDD
+// la connexion ï¿½ la BDD
 include("connexDB2.php");
 
 	
@@ -88,11 +88,11 @@ $requet = $requet1 . $requet2 . $requet3 ;
 $result = db2_exec($DB, $requet);
 if ($result == 0){
 	echo "<BR>";
-	echo "ça va pas du tout !";
+	echo "ï¿½a va pas du tout !";
 	echo $requet;
 	}else
 	{
-//1°lecture 
+//1ï¿½lecture 
 	include("utilitaire.php");
 	$lignes = db2_fetch_assoc($result);
 	$i = 0;
@@ -120,7 +120,7 @@ echo "</td><td>";
 echo  $lignes['CDE3']  ;
 
 echo "</td><td>";
-// je rajoute un formulaire pour détail BL 
+// je rajoute un formulaire pour dï¿½tail BL 
 echo '<form method = "POST" action="ModifBL.php" target="_self">';
 echo '<input type="hidden" name="NBUL"  value ="' . $lignes['NBUL'] . '">';  
 echo '<input type="hidden" name="cod_tarif"  value ="' . $critere . '">';
@@ -138,7 +138,7 @@ db2_close($DB);
 ?>
 </TABLE>
 <?php
-// je rajoute un formulaire en arrière 
+// je rajoute un formulaire en arriï¿½re 
 echo '<form method = "POST" action="ListeBL.php" target="_self">';
 echo '<input type="hidden" name="cod_tarif"  value ="' . $critere . '">';  
 echo '<input type="hidden" name="posdeb"  value ="' . $posdeb . '">';

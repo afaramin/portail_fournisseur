@@ -2,10 +2,10 @@
 <HEAD>
 <title>liste des Meubles</title>
 </HEAD>
-<BODY bgcolor="00FF00">
+<BODY bgcolor="FAEBD7">
 
 <?php
-// pour récupérer le mot de passe et le compte user
+// pour rï¿½cupï¿½rer le mot de passe et le compte user
 session_start ();
 $sens = $_POST ['sens'];
 $posdeb = $_POST ['posdeb'];
@@ -23,11 +23,11 @@ if ($P3EAMAV == '   ') {
 	$P3EAMAV = "099";
 }
 
-echo "<TABLE   border='2'> <caption>liste des Meubles  du statut :    " . $P3EAMIV . " à " . $P3EAMAV;
+echo "<TABLE   border='2'> <caption>liste des Meubles  du statut :    " . $P3EAMIV . " ï¿½ " . $P3EAMAV;
 echo "</caption>";
-echo "<tr><th>Document</th><th>B.L</th><th>client</th><th>Ref Client</th><th>N°aff</th><th>Flag</th><th>Date</th><th>selection</th></tr>";
+echo "<tr><th>Document</th><th>B.L</th><th>client</th><th>Ref Client</th><th>Nï¿½aff</th><th>Flag</th><th>Date</th><th>selection</th></tr>";
 
-// la connexion à la BDD
+// la connexion ï¿½ la BDD
 include ("connexDB2.php");
 
 $requet1 = "   with temp as ( SELECT p.ndoc, p.nbul , p.ncli , p.refc , p.affa  ,    p.cde3 , p.dliv ,
@@ -65,10 +65,10 @@ $requet = $requet1 . $requet2 . $requet3;
 $result = db2_exec ( $DB, $requet );
 if ($result == 0) {
 	echo "<BR>";
-	echo "ça va pas du tout !";
+	echo "ï¿½a va pas du tout !";
 	echo $requet;
 } else {
-	// 1°lecture
+	// 1ï¿½lecture
 	include ("utilitaire.php");
 	$lignes = db2_fetch_assoc ( $result );
 	$i = 0;
@@ -80,7 +80,7 @@ if ($result == 0) {
 		echo "</td><td>";
 		echo $lignes ['NBUL'];
 		echo "</td><td>";
-		// je rajoute un libellé client
+		// je rajoute un libellï¿½ client
 		echo $lignes ['NCLI'] . " " . $lignes ['RSSC'];
 		echo "</td><td>";
 		echo $lignes ['REFC'];
@@ -91,7 +91,7 @@ if ($result == 0) {
 		echo "</td><td>";
 		echo $lignes ['DLIV'];
 		echo "</td><td>";
-		// je rajoute un formulaire pour détail BL
+		// je rajoute un formulaire pour dï¿½tail BL
 		echo '<form method = "POST" action="ModifBL.php" target="_self">';
 		echo '<input type="hidden" name="NBUL"  value ="' . $lignes ['NBUL'] . '">';
 		echo '<input type="submit" value=">>>"></input>';
@@ -104,7 +104,7 @@ if ($result == 0) {
 
 db2_close ( $DB );
 echo '</TABLE>';
-// je rajoute un formulaire en arrière
+// je rajoute un formulaire en arriï¿½re
 echo '<form method = "POST" action="ListeMeuble.php" target="_self">';
 echo '<input type="hidden" name="posdeb"  value ="' . $posdeb . '">';
 echo '<input type="hidden" name="posfin"  value ="' . $posfin . '">';

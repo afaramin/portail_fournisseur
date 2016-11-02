@@ -1,6 +1,7 @@
 <HTML>
 <HEAD>
 <title>Reponse</title>
+ <link rel="stylesheet" type="text/css"  href="./monstyle.css">
 </HEAD>
 <BODY>
 

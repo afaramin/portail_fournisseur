@@ -4,7 +4,9 @@
 <html>
 <head>
 <title>intranet SCD </title>
-</head>
+  <link rel="stylesheet"  type="text/css" href="./monstyle.css">
+ </head>
+ 
 <SCRIPT language="javascript">
 	function AffCopyright() {
 		document.write("<CENTER>Copyright SCD - Tous droits r�serv�s</CENTER>");	

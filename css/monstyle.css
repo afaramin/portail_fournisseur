@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2 nov. 2016, 17:02:12
+    Author     : af
+*/
+
+body {
+    background-color: #FAEBD7;
+    color : blue;
+}
+
+h1 {
+    background-color: #00ff00;
+}
+
+.style_fort {
+  background-color: rgb(153,102,153);
+  color: rgb(255,255,204);
+}

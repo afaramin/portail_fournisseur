@@ -1,8 +1,9 @@
 <HTML>
 <HEAD>
 <title>liste des Meubles</title>
+ <link rel="stylesheet" type="text/css" href="./monstyle.css">
 </HEAD>
-<BODY bgcolor="FAEBD7">
+<BODY>
 
 <?php
 // pour r�cup�rer le mot de passe et le compte user

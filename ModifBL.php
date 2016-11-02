@@ -1,6 +1,7 @@
 <html>
 <head>
-<title>Detail Bon de Livraison</title>
+    <title>Detail Bon de Livraison</title>
+    <link rel="stylesheet" type="text/css"  href="./monstyle.css">
 </head>
 <body>
 	<h2>Modification Bons de Livraison</h2>
@@ -17,7 +18,7 @@
 <?php
 session_start ();
 $CodeUser = $_SESSION ['CodeUser'];
-// récup info formulaire
+// rï¿½cup info formulaire
 $critere = $_POST ['NBUL'];
 $cod_tarif = $_POST['cod_tarif'];
 
@@ -28,12 +29,12 @@ include ("connexDB2.php");
 // LA Premiere fois modpgm est vide !
 if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 	if (empty ( $critere )) {
-		echo "Donnée non comprise";
+		echo "Donnï¿½e non comprise";
 	} else {
-		// mode visu et donnée correcte
+		// mode visu et donnï¿½e correcte
 		echo '<form method = "POST" action="ModifBL.php">';
 		
-		// tout va bien alors requête
+		// tout va bien alors requï¿½te
 		$requet = "SELECT nbul ,  affa , cde3 , refc , dliv  FROM
 		euro4scd/bulent  WHERE nbul = '" . $critere . "'";
 		
@@ -145,7 +146,7 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 	}
  
 echo '<br>';
-echo "Donnée mise à jour ";
+echo "Donnï¿½e mise ï¿½ jour ";
 echo '<br>';
 
 if ($CodeUser == 'KN') {

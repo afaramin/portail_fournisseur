@@ -2,7 +2,7 @@
 <head>
 <title>Confirmation de Livraison</title>
 </head>
-<body>
+<BODY bgcolor="FAEBD7">
 	<h2>Confirmation de Livraison</h2>
 
 

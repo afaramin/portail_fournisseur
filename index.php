@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>intranet SCD </title>
-  <link rel="stylesheet"  type="text/css" href="./monstyle.css">
+  <link rel="stylesheet"  type="text/css" href="./css/monstyle.css">
  </head>
  
 <SCRIPT language="javascript">

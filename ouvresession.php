@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <title> Welcome </title>
- <link rel="stylesheet" type="text/css"  href="./monstyle.css">
+ <link rel="stylesheet" type="text/css"  href="./css/monstyle.css">
 </HEAD>
 
 <BODY>

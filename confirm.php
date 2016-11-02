@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Confirmation de Livraison</title>
- <link rel="stylesheet" type="text/css"  href="./monstyle.css">
+ <link rel="stylesheet" type="text/css"  href="./css/monstyle.css">
 </head>
 <BODY>
 	<h2>Confirmation de Livraison</h2>

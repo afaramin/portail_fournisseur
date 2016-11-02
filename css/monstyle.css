@@ -8,6 +8,8 @@ and open the template in the editor.
     Author     : af
 */
 
+ 
+
 body {
     background-color: #FAEBD7;
     color : blue;
@@ -21,3 +23,4 @@ h1 {
   background-color: rgb(153,102,153);
   color: rgb(255,255,204);
 }
+ 

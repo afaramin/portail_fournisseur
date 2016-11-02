@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Detail Bon de Livraison</title>
-    <link rel="stylesheet" type="text/css"  href="./monstyle.css">
+    <link rel="stylesheet" type="text/css"  href="./css/monstyle.css">
 </head>
 <body>
 	<h2>Modification Bons de Livraison</h2>

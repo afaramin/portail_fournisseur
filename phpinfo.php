@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title> info sur version PHP </title>
-         <link rel="stylesheet" type="text/css"  href="./monstyle.css">
+         <link rel="stylesheet" type="text/css"  href="./css/monstyle.css">
     </head>
     <body>
         <?php

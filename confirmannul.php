@@ -167,7 +167,7 @@ echo '<br>';
 echo "Donnée  mise à jour ";
 echo '<br>';
  
-echo '<form method = "POST" action="ListeConfirm.php">';
+echo '<form method = "POST" action="ListedejaConfirme.php">';
 echo '<br>';
 echo '<input type="submit" value="retour liste"></input>';
 echo '</form>';

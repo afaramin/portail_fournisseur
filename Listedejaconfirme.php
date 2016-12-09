@@ -18,9 +18,9 @@ $P3EMAIL = $_SESSION ['P3EMAIL'];
 $P3NFOU  = $_SESSION['P3NFOU'];
 
 
-echo "<TABLE   border='2'> <caption>  <DIV class='haut'> liste des Commandes Déja  confirmées  de :    " . $P3NFOU  . "</DIV>";
-echo "</caption>";
-echo "<tr><th>commande</th><th>vos refs</th><th>article</th><th>libelle art</th><th>nos refs </th><th>Date</th><th>confirmation</th><th>selection</th>  </tr>";
+echo '<TABLE   border="2"> <caption>  <DIV class="haut"> liste des Commandes Déja  confirmées  de :    ' . $P3NFOU  . '</DIV>';
+echo '</caption>';
+echo '<tr><th>commande</th><th>vos refs</th><th>article</th><th>libelle art</th><th>nos refs </th><th>Date</th><th>confirmation</th><th>selection</th>  </tr>';
 
 // la connexion a la BDD
 include ("connexDB2.php");

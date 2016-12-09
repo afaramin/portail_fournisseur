@@ -18,7 +18,7 @@ $P3EMAIL = $_SESSION ['P3EMAIL'];
 $P3NFOU  = $_SESSION['P3NFOU'];
 
 
-echo "<TABLE   border='2'> <caption>liste des Commandes Déja  confirmées  de :    " . $P3NFOU ;
+echo "<TABLE   border='2'> <caption>  <SPAN class='haut'> liste des Commandes Déja  confirmées  de :    " . $P3NFOU  . "</SPAN>";
 echo "</caption>";
 echo "<tr><th>commande</th><th>vos refs</th><th>article</th><th>libelle art</th><th>nos refs </th><th>Date</th><th>confirmation</th><th>selection</th>  </tr>";
 

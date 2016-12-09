@@ -10,8 +10,8 @@ var nbr;
 function fin(){window.close()};
 pointBlanc = new Image();
 pointRouge = new Image();
-pointBlanc.src ="./Blanc.gif";
-pointRouge.src="./Rouge.gif";
+pointBlanc.src ="./BLANC.gif";
+pointRouge.src="./ROUGE.gif";
 
 function survol(sens, nbr) {
    switch (sens) {
@@ -44,9 +44,22 @@ function survol(sens, nbr) {
 			HREF="ListeConfirm.php" target="principal"
 			onMouseOver="survol(entree ; 1)"
 			onMouseOut="survol(sortie ; 1)"> <font face="Tahoma">
-				Meubles... confirmation dates  </font>
+				Meubles... confirmation </font>
 		</a>
 	</p>
+        
+        
+        <p align="left">
+		&nbsp;&nbsp;<img src="./BLANC.GIF" width="8" height="8"> <A
+			HREF="Listedejaconfirme.php" target="principal"
+			onMouseOver="survol(entree ; 1)"
+			onMouseOut="survol(sortie ; 1)"> <font face="Tahoma">
+				Meubles...déja confirmés </font>
+		</a>
+	</p>
+        
+
+        
 
 	<p align="left">
 		&nbsp;&nbsp;<img src="./BLANC.GIF" width="8" height="8"> <A

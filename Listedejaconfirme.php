@@ -18,7 +18,7 @@ $P3EMAIL = $_SESSION ['P3EMAIL'];
 $P3NFOU  = $_SESSION['P3NFOU'];
 
 
-echo "<TABLE   border='2'> <caption>  <SPAN class='haut'> liste des Commandes Déja  confirmées  de :    " . $P3NFOU  . "</SPAN>";
+echo "<TABLE   border='2'> <caption>  <DIV class='haut'> liste des Commandes Déja  confirmées  de :    " . $P3NFOU  . "</DIV>";
 echo "</caption>";
 echo "<tr><th>commande</th><th>vos refs</th><th>article</th><th>libelle art</th><th>nos refs </th><th>Date</th><th>confirmation</th><th>selection</th>  </tr>";
 
@@ -90,7 +90,7 @@ if ($result == 0) {
                     else{ echo 'Oui';}
                 echo "</td><td>";
 		// je rajoute un formulaire pour d�tail BL
-		echo '<form method = "POST" action="confirm.php" target="_self">';
+		echo '<form method = "POST" action="confirmannul.php" target="_self">';
 		echo '<input type="hidden" name="ADOC"  value ="' . $lignes ['ADOC'] . '">';
 		echo '<input type="hidden" name="ALIG"  value ="' . $lignes ['ALIG'] . '">';
 		echo '<input type="submit" value=">>>"></input>';

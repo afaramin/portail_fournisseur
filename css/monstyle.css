@@ -37,3 +37,9 @@ input[type=button] {
     margin-left: 35px;
     display: block;
 }
+
+
+.haut {
+text-align:center;
+text-height: 200%; 
+}

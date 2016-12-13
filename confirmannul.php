@@ -4,7 +4,7 @@
  <link rel="stylesheet" type="text/css"  href="./css/monstyle.css">
 </head>
 <BODY>
-	<h2>Confirmation de Livraison</h2>
+	<h2>De-Confirmation de Livraison</h2>
 
 
 
@@ -32,7 +32,7 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 		echo "Donnee non comprise";
 	} else {
 		// mode visu et donn�e correcte
-		echo '<form method = "POST" action="confirm.php">';
+		echo '<form method = "POST" action="confirmannul.php">';
 		
 		// tout va bien alors requete
 		$requet = "SELECT ADOC , C.VREF , NART , LCDL , DCAR , ALIG , C.NREF , FQCD , a.CTFO FROM
@@ -44,7 +44,7 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 		$lignes = db2_fetch_assoc ( $result );
 		if ($lignes != FALSE) {
 			echo '<BR>';
-			echo "<TABLE   border='2'> <caption> Confirmation Livraison " . $ADOC;
+			echo "<TABLE   border='2'> <caption class='haut'> DE-Confirmation Livraison " . $ADOC;
 			echo "</caption>";
 			
 			echo '<tr><td>';
@@ -92,7 +92,7 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 			echo '<input type="submit" value="de-confirmer "></input>';
 			echo '</form>';
 			
-			echo '<form method = "POST" action="ListedejaConfirme.php">';
+			echo '<form method = "POST" action="Listedejaconfirme.php">';
 			 
 			echo '<br>';
 			echo '<input type="submit" value="retour liste BL"></input>';
@@ -101,48 +101,15 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 	}
 } else {
 	
-	$statut = $_POST['statut'];
-        
-        
-           if  ($statut === 'Non') {
-	// gestion de la date pour  l'update
-	$DLIV = $_POST ['dateliv'];
-	$date_explosee = explode ( "/", $DLIV );
-	$jour = $date_explosee [0];
-	$mois = $date_explosee [1];
-	$annee = $date_explosee [2];
-	$DLIV = $annee * 10000 + $mois * 100 + $jour;
-	
-
-   // mise à jour date
-	$requet1 = "UPDATE euro4scd/cdflig  	set     DCAR = " . $DLIV;
-	$requet2 = " where  ADOC  = '" . $ADOC . "' and ALIG = '" . $ALIG . "'";
-	$requet = $requet1 . $requet2;
-	$result = db2_exec($DB, $requet );
-	// si date incorrect 
-	if ($DLIV <= Date ( 'Ymd' )) {
-		$sujet = 'date incorrect sur la commande Vimens' . $adoc;
-		$desti = 'scda@scd.fr';
-		$message = ' la date de livraison ne semble pas convenir ' . $DLIV;
-		mail($desti, $sujet, $message ); }
-		
-        if ($result === FALSE) {die ( "<br>connection using  " . $requet . " is not correct   </br>" );}
-             }
-             
-                
-        if  ($statut === 'Oui') {
-	// oui confirmé appel du programme de EUREKA via l'appel d'une procedure SQL
+	     
+        // mode modif = deconfirmation         
+       
             
             // gestion de la date pour  l'update
-	$DLIV   = $_POST ['dateliv'];
-	$date_explosee = explode ( "/", $DLIV );
-	$jour   = $date_explosee [0];
-	$mois   = $date_explosee [1];
-	$annee  = $date_explosee [2];
-	$DLIV   = $jour * 1000000 + $mois * 10000 + $annee;
+	$DLIV   = '00000000';
         
         
-        $ecritbdd = 'call xcdfarcc( ? , ? , ?   )';
+        $ecritbdd = 'call xcdfdcnc( ? , ? , ?   )';
 	$stmt = db2_prepare($DB, $ecritbdd );
 	$rc = db2_bind_param($stmt, 1, "ADOC" ,DB2_PARAM_IN);
         $rc = db2_bind_param($stmt, 2, "ALIG" ,DB2_PARAM_IN);
@@ -153,7 +120,7 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 	
 	if ($rc == FALSE) {
 		die ( "<br>connection using  " . $ecritbdd . " is not correct   </br>" . $ADOC . " " . $ALIG . "  " . $DLIV   );
-	}
+	
         
             
         }

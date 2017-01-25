@@ -1,10 +1,17 @@
+<html>
+    
+<head>
+    <meta charset="utf-8">
+    <title>test webservice</title>
+     <link rel="stylesheet" type="text/css"  href="./css/monstyle.css">
+</head>
+<body>
+
+    
+    
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+echo
  
 $start = microtime(true);
 $client = new SoapClient('http://95.128.145.120:10010/web/services/XWEBINFPRD/xwebinfprd.wsdl', array('cache_wsdl' => WSDL_CACHE_NONE));
@@ -15,8 +22,10 @@ $client = new SoapClient('http://95.128.145.120:10010/web/services/XWEBINFPRD/xw
           ),
         )
     );
-//print_r($response);
+    
+print_r($response);
 echo microtime(true) - $start;
 
 ?>
-
+</body>
+</html>

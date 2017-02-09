@@ -41,5 +41,6 @@ input[type=button] {
 
 .haut {
 text-align:center;
-text-height: 200%; 
+line--height: 200%; 
+color : red;
 }

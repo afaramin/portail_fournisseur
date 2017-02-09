@@ -10,8 +10,8 @@ var nbr;
 function fin(){window.close()};
 pointBlanc = new Image();
 pointRouge = new Image();
-pointBlanc.src ="./BLANC.gif";
-pointRouge.src="./ROUGE.gif";
+pointBlanc.src ="BLANC.gif";
+pointRouge.src ="ROUGE.gif";
 
 function survol(sens, nbr) {
    switch (sens) {
@@ -60,12 +60,22 @@ function survol(sens, nbr) {
         
 
         
+        <p align="left">
+		&nbsp;&nbsp;<img src="./BLANC.GIF" width="8" height="8"> <A
+			HREF="meubles_acces_direct.php" target="principal"
+			onMouseOver="survol(entree ; 3)"
+			onMouseOut="survol(sortie ; 3)"> <font face="Tahoma">
+				Accés direct </font>
+		</a>
+	</p>
+        
+        
 
 	<p align="left">
 		&nbsp;&nbsp;<img src="./BLANC.GIF" width="8" height="8"> <A
 			HREF="fermesession.php" target="principal"
-			onMouseOver="survol(entree ; 3)"
-			onMouseOut="survol(sortie ; 3)"> <font face="Tahoma">
+			onMouseOver="survol(entree ; 4)"
+			onMouseOut="survol(sortie ; 4)"> <font face="Tahoma">
 				Logout </font>
 		</a>
 	</p>

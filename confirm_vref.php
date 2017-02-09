@@ -4,21 +4,15 @@
  <link rel="stylesheet" type="text/css"  href="./css/monstyle.css">
 </head>
 <BODY>
-	<h2>Confirmation de Livraison</h2>
-
-
-
-
+	<h2>Confirmation de Livraison par N°DOSSIER Supplier </h2>
 	<br>
 	<br>
-
-
-
 
 <?php
 session_start ();
 $CodeUser = $_SESSION ['CodeUser'];
 // r�cup info formulaire
+$VREF = $_POST ['VREF'];
 $ADOC = $_POST ['ADOC'];
 $ALIG = $_POST['ALIG'];
 
@@ -28,15 +22,15 @@ include ("connexDB2.php");
 
 // LA Premiere fois modpgm est vide !
 if (empty ( $_POST ['modpgm'] )) { // modif visualisation
-	if (empty ( $ADOC )) {
-		echo "Donnee non comprise";
+	if (empty ( $VREF )) {
+		echo "désolé Donnee non comprise";
 	} else {
 		// mode visu et donn�e correcte
-		echo '<form method = "POST" action="confirm.php">';
+		echo '<form method = "POST" action="confirm_vref.php">';
 		
 		// tout va bien alors requete
 		$requet = "SELECT ADOC , C.VREF , NART , LCDL , DCAR , ALIG , C.NREF , FQCD , a.CTFO FROM
-		euro4scd/cdflig a left join euro4scd/cdfent c  using(ADOC) WHERE ADOC = '" . $ADOC . "' and ALIG ='"  . $ALIG . "'";
+		euro4scd/cdflig a left join euro4scd/cdfent c  using(ADOC) WHERE C.VREF = '" . $VREF . "' and ACSE <> '9'";
 		// echo  $requet;
 		$result = db2_exec ( $DB, $requet );
 		
@@ -44,11 +38,11 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 		$lignes = db2_fetch_assoc ( $result );
 		if ($lignes != FALSE) {
 			echo '<BR>';
-			echo "<TABLE   border='2'> <caption> Confirmation Livraison " . $ADOC;
+			echo "<TABLE   border='2'> <caption> Confirmation Livraison " . $lignes ['ADOC'];
 			echo "</caption>";
 			
 			echo '<tr><td>';
-			echo '<b>Vos REFS    </b>' . $lignes ['VREF']  ;
+			echo '<b>Vos REFS    </b>' . $VREF  ;
 			echo '<BR>';
 			echo '</td></tr>';
 			
@@ -89,21 +83,31 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 			echo '</td></tr>';
 			echo '</TABLE>';
 			
-			
 			echo '<input type="hidden" name="ADOC"  value ="' . $lignes ['ADOC'] . '">';
 			echo '<input type="hidden" name="ALIG"  value ="' . $lignes ['ALIG'] . '">';
+			echo '<input type="hidden" name="VREF"  value ="' . $lignes ['VREF'] . '">';
 			echo '<input type="hidden" name="modpgm" value ="' . "modif" . '">';
                         
 			echo '<br>';
 			echo '<input type="submit" value="valider"></input>';
 			echo '</form>';
 			
-			echo '<form method = "POST" action="ListeConfirm.php">';
+			echo '<form method = "POST" action="meubles_acces_direct.php">';
 			 
 			echo '<br>';
-			echo '<input type="submit" value="retour liste BL"></input>';
+			echo '<input type="submit" value="retour acces"></input>';
 			echo '</form>';
 		}
+                else{
+                    echo '</form>';
+                    echo '<BR>';
+                    echo 'bof, connais pas ';
+                    echo '<BR>';
+                    echo '<form method = "POST" action="meubles_acces_direct.php">';
+                    echo '<br>';
+                    echo '<input type="submit" value="retour acces"></input>';
+                    echo '</form>';
+                }
 	}
 } else {
 	
@@ -173,9 +177,9 @@ echo '<br>';
 echo "Donnée  mise à jour ";
 echo '<br>';
  
-echo '<form method = "POST" action="ListeConfirm.php">';
+echo '<form method = "POST" action="meubles_acces_direct.php">';
 echo '<br>';
-echo '<input type="submit" value="retour liste"></input>';
+echo '<input type="submit" value="retour acces direct"></input>';
 echo '</form>';
 }
 ?>

@@ -11,6 +11,7 @@
 <?php
 session_start ();
 $CodeUser = $_SESSION ['CodeUser'];
+$P3NFOU  = $_SESSION['P3NFOU'];
 // r�cup info formulaire
 $VREF = $_POST ['VREF'];
 $ADOC = $_POST ['ADOC'];
@@ -29,9 +30,11 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 		echo '<form method = "POST" action="confirm_vref.php">';
 		
 		// tout va bien alors requete
-		$requet = "SELECT ADOC , C.VREF , NART , LCDL , DCAR , ALIG , C.NREF , FQCD , a.CTFO FROM
-		euro4scd/cdflig a left join euro4scd/cdfent c  using(ADOC) WHERE C.VREF = '" . $VREF . "' and ACSE <> '9'";
-		// echo  $requet;
+		$requet1  = "SELECT ADOC , C.VREF , NART , LCDL , DCAR , ALIG , C.NREF , FQCD , a.CTFO FROM
+		euro4scd/cdflig a left join euro4scd/cdfent c  using(ADOC) WHERE C.VREF = '" . $VREF . "' and ACSE <> '9'  and  P.nfou = '";
+		$requet2 =   $P3NFOU . "' ";
+                $requet = $requet1 . $requet2;
+                // echo  $requet;
 		$result = db2_exec ( $DB, $requet );
 		
 		// lecture une fois

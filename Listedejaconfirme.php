@@ -104,14 +104,15 @@ if ($result == 0) {
 db2_close ( $DB );
 echo '</TABLE>';
 // je rajoute un formulaire en arri�re
-echo '<form method = "POST" action="ListeConfirm.php" target="_self">';
+echo '<form method = "POST" action="Listedejaconfirm.php" target="_self">';
 echo '<input type="hidden" name="posdeb"  value ="' . $posdeb . '">';
 echo '<input type="hidden" name="posfin"  value ="' . $posfin . '">';
 echo '<input type="hidden" name="sens"  value ="bas">';
 echo '<input type="submit" value="<<<"></input>';
 echo "</form>";
+
 // je rajoute un formulaire en avant
-echo '<form method = "POST" action="ListeConfirm.php" target="_self">';
+echo '<form method = "POST" action="Listedejaconfirm.php" target="_self">';
 echo '<input type="hidden" name="posdeb"  value ="' . $posdeb . '">';
 echo '<input type="hidden" name="posfin"  value ="' . $posfin . '">';
 echo '<input type="hidden" name="sens"  value ="haut">';

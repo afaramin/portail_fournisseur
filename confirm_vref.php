@@ -156,14 +156,14 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
         $DLIV   = str_pad($DLIV, 8, "0", STR_PAD_LEFT);
         $ALIG   = str_pad($ALIG, 3, "0", STR_PAD_LEFT);
         
-        $ecritbdd = 'call xcdfarcc( ? , ? , ?   )';
-	$stmt = db2_prepare($DB, $ecritbdd );
-	$rc = db2_bind_param($stmt, 1, "ADOC" ,DB2_PARAM_IN);
-        $rc = db2_bind_param($stmt, 2, "ALIG" ,DB2_PARAM_IN);
-        $rc = db2_bind_param($stmt, 3, "DLIV" ,DB2_PARAM_IN);
-        
-        
-	$rc = db2_execute($stmt);
+        $ecritbdd = 'call xcdfarcc(\'' . $ADOC . '\'  , \''   . $ALIG .  '\'  , \''  . $DLIV . '\')' ;
+	//$ecritbdd = 'call xcdfarcc( ? , ? , ?   )';
+        // $stmt = db2_prepare($DB, $ecritbdd );
+	// $rc = db2_bind_param($stmt, 1, "ADOC" ,DB2_PARAM_IN);
+        // $rc = db2_bind_param($stmt, 2, "ALIG" ,DB2_PARAM_IN);
+        // $rc = db2_bind_param($stmt, 3, "DLIV" ,DB2_PARAM_IN);
+        // $rc = db2_execute($stmt);
+        $rc = db2_exec ( $DB, $ecritbdd );
 	
 	if ($rc == FALSE) {
 		die ( "<br>connection using  " . $ecritbdd . " is not correct   </br>" . $ADOC . " " . $ALIG . "  " . $DLIV   );

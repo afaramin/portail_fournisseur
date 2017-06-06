@@ -31,7 +31,7 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 		
 		// tout va bien alors requete
 		$requet1  = "SELECT ADOC , C.VREF , NART , LCDL , DCAR , ALIG , C.NREF , FQCD , a.CTFO FROM
-		euro4scd/cdflig a left join euro4scd/cdfent c  using(ADOC) WHERE C.VREF = '" . $VREF . "' and ACSE <> '9'  and  P.nfou = '";
+		euro4scd/cdflig a left join euro4scd/cdfent c  using(ADOC) WHERE C.VREF = '" . $VREF . "' and ACSE <> '9'  and  c.nfou = '";
 		$requet2 =   $P3NFOU . "' ";
                 $requet = $requet1 . $requet2;
                 // echo  $requet;
@@ -153,7 +153,8 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
 	$mois   = $date_explosee [1];
 	$annee  = $date_explosee [2];
 	$DLIV   = $jour * 1000000 + $mois * 10000 + $annee;
-        
+        $DLIV   = str_pad($DLIV, 8, "0", STR_PAD_LEFT);
+        $ALIG   = str_pad($ALIG, 3, "0", STR_PAD_LEFT);
         
         $ecritbdd = 'call xcdfarcc( ? , ? , ?   )';
 	$stmt = db2_prepare($DB, $ecritbdd );

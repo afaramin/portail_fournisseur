@@ -107,17 +107,17 @@ if (empty ( $_POST ['modpgm'] )) { // modif visualisation
             
             // gestion de la date pour  l'update
 	$DLIV   = '00000000';
+        $ALIG   = str_pad($ALIG, 3, "0", STR_PAD_LEFT);
         
+        $ecritbdd = 'call xcdfarcc(\'' . $ADOC . '\'  , \''   . $ALIG .  '\'  , \''  . $DLIV . '\')' ; 
+        // $ecritbdd = 'call xcdfdcnc( ? , ? , ?   )';
+	// $stmt = db2_prepare($DB, $ecritbdd );
+	// $rc = db2_bind_param($stmt, 1, "ADOC" ,DB2_PARAM_IN);
+        // $rc = db2_bind_param($stmt, 2, "ALIG" ,DB2_PARAM_IN);
+        // $rc = db2_bind_param($stmt, 3, "DLIV" ,DB2_PARAM_IN);
+        // $rc = db2_execute($stmt);
+	$rc = db2_exec ( $DB, $ecritbdd );
         
-        $ecritbdd = 'call xcdfdcnc( ? , ? , ?   )';
-	$stmt = db2_prepare($DB, $ecritbdd );
-	$rc = db2_bind_param($stmt, 1, "ADOC" ,DB2_PARAM_IN);
-        $rc = db2_bind_param($stmt, 2, "ALIG" ,DB2_PARAM_IN);
-        $rc = db2_bind_param($stmt, 3, "DLIV" ,DB2_PARAM_IN);
-        
-        
-	$rc = db2_execute($stmt);
-	
 	if ($rc == FALSE) {
 		die ( "<br>connection using  " . $ecritbdd . " is not correct   </br>" . $ADOC . " " . $ALIG . "  " . $DLIV   );
 	

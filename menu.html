@@ -8,12 +8,13 @@
 <script>	
 var NewWin;
 var nbr;
-function fin(){window.close()};
+
 pointBlanc = new Image();
 pointRouge = new Image();
-pointBlanc.src ="./Blanc.gif";
-pointRouge.src="./Rouge.gif";
+pointBlanc.src ="./commun/Blanc.GIF";
+pointRouge.src="./commun/Rouge.GIF";
 
+function fin(){window.close()};
 function survol(sens, nbr) {
    switch (sens) {
       case "entree" :

@@ -10,10 +10,10 @@
 var qui;
 function chargemenu(qui) 
 
-{	if (qui == 'KN'){
+{	if (qui == 'KN'  ){
 	parent.frames["menu"].window.location = "menu_meubles.html" ;}
 else {
-	if (qui == 'VIMENS'){
+	if (qui == 'VIMENS' ||  qui == 'PERFECTA'){
 		parent.frames["menu"].window.location = "menu_confirm.html" ;}
 	else {
 		parent.frames["menu"].window.location = "menu.html" ;}}
@@ -82,7 +82,7 @@ if (isset($_POST['CodeUser'])  and !empty($_POST['MotPasse']))
   	<SCRIPT > chargemenu('KN'); </SCRIPT>
 	<?php }
 	else { 
-	    if  ($CodeUser == 'VIMENS') { ?>
+	    if  ($CodeUser == 'VIMENS'  || $CodeUser == 'PERFECTA') { ?>
 	    <SCRIPT > chargemenu('VIMENS'); </SCRIPT>
     	<?php }
     	else {

@@ -13,7 +13,7 @@ function chargemenu(qui)
 {	if (qui == 'KN'  ){
 	parent.frames["menu"].window.location = "menu_meubles.html" ;}
 else {
-	if (qui == 'VIMENS' ||  qui == 'PERFECTA'){
+	if (qui == 'CANCIO' ||  qui == 'PERFECTA'){
 		parent.frames["menu"].window.location = "menu_confirm.html" ;}
 	else {
 		parent.frames["menu"].window.location = "menu.html" ;}}
